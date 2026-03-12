@@ -54,5 +54,7 @@ From the repository root:
 - 252 trading days per year.
 - Asset classes are inferred by **column position** (hard-coded slices). If the dataset column ordering changes, update the slicing logic accordingly.
 
+##Note Results might be slightly different from the example due to the probabilistic nature of a monte carlo simulation, the results select from a small group of assests in the top 5% of Sharpe Ratios 
+
 ---
 Author(s): QuantGroup7
