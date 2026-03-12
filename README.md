@@ -4,37 +4,53 @@ MSc Group Assignment for **Quantitative Methods, Coding and AI in Finance**.
 
 Group Members: Aakash Arul, Maeve Gaffney, Anna Kurkina, Mykyta Nedzelskiy, Aryaa Sushil Punyarthi
 
+## Overview
 
-This repository contains Python scripts for portfolio analytics and optimisation using a provided dataset (Excel), including return/covariance estimation, visual diagnostics, Monte Carlo portfolio search, and additional statistical tests (risk attribution + stationarity/cointegration).
+This repository contains Python code for portfolio analysis and optimisation using the included Excel dataset (`Dataset_2026.xlsx`). It covers:
+
+- Data cleaning and return/covariance estimation
+- Monte Carlo portfolio construction under constraints (e.g., diversification across asset classes)
+- Backtesting and portfolio comparison (equal-weight vs. dynamic weighting)
+- Statistical diagnostics such as ADF stationarity tests and Engle–Granger cointegration
+- A simple Streamlit UI to run the analysis interactively
 
 ## Repository contents
 
+- `Dataset_2026.xlsx` — input dataset (Excel).
+- `1ASuccess.py` — asset selection & portfolio optimisation workflow (loads the dataset, cleans it, defines asset classes by column slices, and runs portfolio analytics/Monte Carlo search).
+- `1B1C1DSuccess.py` — portfolio construction / rebalancing and comparison logic using a list of “top assets” from a frequency CSV (equal-weight vs. momentum/volatility “dual dynamic” weights; rebalanced monthly).
+- `q2Success.py` — additional quantitative diagnostics on selected assets (ADF stationarity test outputs `adf_results.csv`; Engle–Granger cointegration tests across asset pairs).
+- `UITrial.py` — Streamlit app that lets you upload an Excel file and run the analysis in a browser, producing figures/CSVs for download.
 
-project2.py= Portfolio construction + Monte Carlo simulation to search across 5-asset portfolios under constraints, ranking by Sharpe ratio, and exporting plots/results.
-project2q.py =Additional quantitative analysis including:
-  - risk attribution (marginal contribution to risk / contribution to risk)
-  - Dickey–Fuller stationarity test
-  - Engle–Granger cointegration tests and heatmap
+## How to run
 
-_
-Both scripts currently load data from a **local Windows path**:
+### 1) Create an environment
 
-- `C:\Users\maeve\Downloads\Dataset_2026.xlsx`
+Install Python dependencies (examples):
 
-To run on another machine, you’ll need to either:
-1. Update `file_path` inside each script, or
-2. Refactor to accept a relative path / CLI argument (recommended).
+- `pandas`, `numpy`, `matplotlib`, `seaborn`
+- `statsmodels`
+- `streamlit` (for the UI)
 
-This Data Set is included in this repository and if this script is run with alternative data the format must be the same 
+### 2) Data file location
 
-Asset classes are inferred by column position (slices), e.g. Equities, Bonds, Commodities, FX. If the dataset column ordering changes, you must update the asset-class slicing logic.
+Some scripts currently reference **local Windows paths** (e.g. `C:\Users\maeve\Downloads\Dataset_2026.xlsx` and a local `asset_frequency_top_5_pct.csv`). For portability, you can:
 
+1. Change the path variables (`file_path`, `price_file`, `freq_file`) to point to your local copies, or
+2. Refactor the scripts to use the repository file `Dataset_2026.xlsx` (recommended) and to accept paths via CLI args.
 
-Assumptions 
-0% riskfree rate
-252 trading days per year 
-Asset classses are hard coded 
+### 3) Run scripts
 
+From the repository root:
+
+- Run the analysis scripts with Python, e.g. `python 1ASuccess.py`
+- For the UI: `streamlit run UITrial.py`
+
+## Notes / assumptions
+
+- 0% risk-free rate (as used in Sharpe ratio calculations).
+- 252 trading days per year.
+- Asset classes are inferred by **column position** (hard-coded slices). If the dataset column ordering changes, update the slicing logic accordingly.
 
 ---
 Author(s): QuantGroup7
