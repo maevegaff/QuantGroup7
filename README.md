@@ -17,9 +17,9 @@ This repository contains Python code for portfolio analysis and optimisation usi
 ## Repository contents
 
 - `Dataset_2026.xlsx` — input dataset (Excel).
-- `1ASuccess.py` — asset selection & portfolio optimisation workflow (loads the dataset, cleans it, defines asset classes by column slices, and runs portfolio analytics/Monte Carlo search).
-- `1B1C1DSuccess.py` — portfolio construction / rebalancing and comparison logic using a list of “top assets” from a frequency CSV (equal-weight vs. momentum/volatility “dual dynamic” weights; rebalanced monthly).
-- `q2Success.py` — additional quantitative diagnostics on selected assets (ADF stationarity test outputs `adf_results.csv`; Engle–Granger cointegration tests across asset pairs).
+- `1ASuccess` — asset selection & portfolio optimisation workflow (loads the dataset, cleans it, defines asset classes by column slices, and runs portfolio analytics/Monte Carlo search). -> Answers Question 1A
+- `1B1C1DSuccess` — portfolio construction / rebalancing and comparison logic using a list of “top assets” from a frequency CSV (equal-weight vs. momentum/volatility “dual dynamic” weights; rebalanced monthly). ->Answers Question 1B, 1C, 1D
+- `q2Success` — additional quantitative diagnostics on selected assets (ADF stationarity test outputs `adf_results.csv`; Engle–Granger cointegration tests across asset pairs). -> Answers Question 2
 - `UITrial.py` — Streamlit app that lets you upload an Excel file and run the analysis in a browser, producing figures/CSVs for download.
 
 ## How to run
@@ -39,12 +39,14 @@ Some scripts currently reference **local Windows paths** (e.g. `C:\Users\maeve\D
 1. Change the path variables (`file_path`, `price_file`, `freq_file`) to point to your local copies, or
 2. Refactor the scripts to use the repository file `Dataset_2026.xlsx` (recommended) and to accept paths via CLI args.
 
+Note: the second dataframe that is not provided is generated through script 1A Success and is a Dataframe outlining the fequency assets appear in the top 5% of modelled sharpe ratios (A sample of the csv is provided just in case)
+
 ### 3) Run scripts
 
 From the repository root:
 
-- Run the analysis scripts with Python, e.g. `python 1ASuccess.py`
-- For the UI: `streamlit run UITrial.py`
+- Run the analysis scripts with Python, It is advised that Scripts are run in the following order: 1ASuccess, 1B1C1DSuccess , q2 Success, 
+- For the UI: `streamlit run UITrial.py` (Best if Command is run in Terminal)
 
 ## Notes / assumptions
 
