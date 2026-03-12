@@ -2,10 +2,13 @@
 
 MSc Group Assignment for **Quantitative Methods, Coding and AI in Finance**.
 
+Group Members: Aakash Arul, Maeve Gaffney, Anna Kurkina, Mykyta Nedzelskiy, Aryaa Sushil Punyarthi
+
 
 This repository contains Python scripts for portfolio analytics and optimisation using a provided dataset (Excel), including return/covariance estimation, visual diagnostics, Monte Carlo portfolio search, and additional statistical tests (risk attribution + stationarity/cointegration).
 
 ## Repository contents
+
 
 project2.py= Portfolio construction + Monte Carlo simulation to search across 5-asset portfolios under constraints, ranking by Sharpe ratio, and exporting plots/results.
 project2q.py =Additional quantitative analysis including:
@@ -13,7 +16,7 @@ project2q.py =Additional quantitative analysis including:
   - Dickey–Fuller stationarity test
   - Engle–Granger cointegration tests and heatmap
 
-
+_
 Both scripts currently load data from a **local Windows path**:
 
 - `C:\Users\maeve\Downloads\Dataset_2026.xlsx`
